@@ -8,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CartModalPage } from './pages/cart-modal/cart-modal.page';
+import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule, 
+    CartModalPageModule
   ],
   providers: [
     StatusBar,
