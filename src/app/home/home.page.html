@@ -1,26 +1,22 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header >
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title >
       PizzApp
     </ion-title>
+    <ion-fab-buttons slot="primary">
+      <ion-fab-button fill="outline"  color="dark"(click)="openCart()" #cart>
+        <div class="cart-length">{{ cartItemCount | async }}</div>
+        <ion-icon name="cart" class="cart-icon"></ion-icon>
+        <ion-icon slot="end" name="help-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--
-  <ion-card-header>
-    <ion-card-subtitle>Bienvenu sur PizzApp</ion-card-subtitle>
-  </ion-card-header>
-  -->
-  <ion-fab vertical="top" horizontal="end" slot="fixed"> 
-    <ion-fab-button (click)="openCart()" #cart>
-      <div class="cart-length">{{ cartItemCount | async }}</div>
-      <ion-icon name="cart" class="cart-icon"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
   <ion-list>
     <ion-card *ngFor="let p of products">
@@ -30,13 +26,18 @@
       <ion-card-content>
         <ion-row class="ion-align-items-center">
           <ion-col size="8">
-            <ion-label color="secondary">
+            <ion-label color="warning">
               <b>{{ p.price }} €</b>
             </ion-label>
           </ion-col>
-          <ion-col size="4" class="ion-text-right">
+          <ion-col size="2" class="ion-text-right">
+            <ion-button fill="clear" (click)="openInfo(p)">
+              <ion-icon class="iconBuy" name="help-circle-outline" color="dark"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2" class="ion-text-right">
             <ion-button fill="clear" (click)="addToCart(p)">
-              <ion-icon name="add"></ion-icon>
+              <ion-icon class="iconBuy" name="add-circle-outline" color="dark"></ion-icon>
             </ion-button>
           </ion-col>
         </ion-row>
@@ -45,72 +46,4 @@
   </ion-list>
 </ion-content>
 
-    <!--
-    <ion-card>
-      <ion-list>
-        <ion-card *ngFor="let p of products; index as i">
-          <ion-card-header>
-            <ion-card-title>{{ item.name }}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-list>
-    </ion-card>
-    -->
-<!--
-    <ion-fab vertical="top" horizontal="end" slot="fixed"> 
-
-      <ion-fab-button (click)="openCart()" #cart>
-
-        <div class="cart-lenght">{{ cartItemCount | async }}</div>
-        <ion-icon name="cart" class="cart-icon"></ion-icon>
-
-      </ion-fab-button>
-
-    </ion-fab>
-
-    <ion-content padding color="primary">
-      
-      <ion-list>
-        <ion-card *ngFor="let item of data; index as i">
-          <ion-card-header>
-            <ion-card-title>{{ item.nom }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-row >
-              <ion-col size="8">
-                <ion-label color="secondary">
-                  <b>{{ item.prix }} €</b>
-                </ion-label>
-              <br/><br/>
-                <ion-img [src]="item.photo" class="photoAff"></ion-img>
-              </ion-col>
-              <ion-col size="" class="ion-text-right">
-                <ion-button fill="clear" (click)="addToCart(product)">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-        </ion-card>
-      </ion-list>
-
-    </ion-content>
     
-</ion-content>
--->
-<!--
-      <ion-card>
-        <ion-grid>
-          <ion-row *ngFor="let item of data; index as i">
-            <ion-col size="1">{{ i+ 1 }}</ion-col>
-            <ion-col size="3"> {{ item.nom }}</ion-col>
-            <ion-col size="3" class="ion-align-items-center"> {{ item.prix }}</ion-col>
-            <ion-col size="4" class="ion-text-right">
-              <ion-button fill="clear" (click)="addToCart(item)">
-                <ion-icon name="add"></ion-icon>
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card>
-    -->

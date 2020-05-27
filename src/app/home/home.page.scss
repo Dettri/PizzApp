@@ -4,8 +4,8 @@ ion-card{
 }
 
 ion-fab-button {
-  height: 70px;
-  width: 70px;
+  height: 75px;
+  width: 75px;
 }
 
 .cart-icon {
@@ -13,10 +13,10 @@ ion-fab-button {
 }
 
 .cart-length {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-warning);
   position: absolute;
-  top: 18px;
-  left: 25px;
+  top: 25px;
+  left: 28px;
   font-weight: 600;
   font-size: 1em;
   min-width: 25px;
@@ -26,4 +26,9 @@ ion-fab-button {
 
 .photoAff {
   width: 50px;
+}
+
+.iconBuy {
+  height: 25px;
+  width: 25px;
 }

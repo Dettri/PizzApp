@@ -7,6 +7,12 @@ export interface Product {
   name: string,
   price: number,
   amount: number;
+  ingredients: number[];
+}
+
+export interface ingredients {
+  id: number,
+  name: string
 }
 
 @Injectable({
@@ -16,19 +22,33 @@ export interface Product {
 export class CartService {
 
   data: Product[] = [
-    { id: 0, name: 'Chèvre Miel', price: 12, amount: 1},
-    { id: 1, name: 'Paysane', price: 12, amount: 1},
-    { id: 2, name: 'Royal', price: 12, amount: 1},
-    { id: 3, name: 'Chorizo', price: 13, amount: 1},
-    { id: 4, name: 'Chèvre Miel', price: 12, amount: 1},
-    { id: 5, name: 'Chèvre Miel', price: 12, amount: 1}
-  ]
+    { id: 0, name: 'Chèvre Miel', price: 13, amount: 1, ingredients: [1, 2]},
+    { id: 1, name: 'Paysane', price: 12, amount: 1, ingredients: [3, 5, 6]},
+    { id: 2, name: 'Royal', price: 12, amount: 1, ingredients: [1, 5, 6]},
+    { id: 3, name: 'Chorizo', price: 13, amount: 1, ingredients: [2, 4, 6, 7]},
+    { id: 4, name: 'Provencale', price: 13, amount: 1, ingredients: [1, 3, 5]},
+    { id: 5, name: 'Poulet', price: 14, amount: 1, ingredients: [3,6, 8]},
+    { id: 6, name: 'Fromage', price: 11, amount: 1, ingredients: [2, 5, 8]}
+  ]; 
+
+  ingredients: ingredients[] = [
+    {id: 0, name: 'Creme'},
+    {id: 1, name: 'Tomate'},
+    {id: 2, name: 'Jambon'},
+    {id: 3, name: 'Poulet'},
+    {id: 4, name: 'Chorizzo'},
+    {id: 5, name: 'Pesto'},
+    {id: 6, name: 'Fromage'},
+    {id: 7, name: 'Champignon'},
+    {id: 8, name: 'Lardon'}
+  ];
 
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
 
   constructor() { }
 
+  // INFO  PRODUCT
   getProduct(){
     return this.data;
   }
@@ -41,6 +61,7 @@ export class CartService {
     return this.cartItemCount;
   }
 
+  // PANIER
   addProduct(product){
     let added = false;
     for (let p of this.cart){
@@ -76,7 +97,12 @@ export class CartService {
       }
     }
   }
-  
+
+  // INFORMATIONS INGREDIENTS
+  getIngredients(){
+    return this.ingredients;
+  }
+
   /*
   data: any;
 

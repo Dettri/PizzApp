@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
+import { InfoModalPage } from '../pages/info-modal/info-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,9 @@ export class HomePage implements OnInit {
   products=[];
   cartItemCount : BehaviorSubject<number>;
 
+  // animation
+  @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
+
   constructor(private cartService : CartService, private modalCtrl: ModalController) {}
 
   ngOnInit(){
@@ -24,33 +28,37 @@ export class HomePage implements OnInit {
   }
 
   addToCart(product){
+    this.animateCSS('tada');
     this.cartService.addProduct(product);
   }
 
   async openCart(){
     let modal = await this.modalCtrl.create({
-       component: CartModalPage,
-       cssClass: 'cart-modal'
-     });
-     modal.present();
-   }
-
-  /*
-
-  data: any;
-
-  ngOnInit() {
-    fetch('./assets/data/datajson.json').then(res => res.json())
-    .then(json => {
-      this.data = json;
+      component: CartModalPage,
+      cssClass: 'cart-modal'
     });
+    modal.present();
+  } 
 
- 
+  async openInfo(product){
+    let modal = await this.modalCtrl.create({
+      component: InfoModalPage,
+      componentProps: { ActualProduct: product },
+      cssClass: 'info-modal',
+    });
+    modal.present();
   }
 
-  
- /*
-  
-    */
+  animateCSS(animationName, keepAnimated = false){
+    const node = this.fab.nativeElement;
+    node.classList.add('animated', animationName)
 
+    function handleAnimationEnd(){
+      if (!keepAnimated){
+        node.classList.remove('animated', animationName);
+      }
+      node.removeEventListener('animationend', handleAnimationEnd);
+    }
+    node.addEventListener('animationend', handleAnimationEnd);
+  }
 }
