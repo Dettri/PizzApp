@@ -12,6 +12,9 @@ import { CartModalPage } from './pages/cart-modal/cart-modal.page';
 import { InfoModalPage } from './pages/info-modal/info-modal.page';
 import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
 import { InfoModalPageModule } from './pages/info-modal/info-modal.module';
+import { AdministrationPageModule } from './pages/administration/administration.module';
+import { FormProductPageModule } from './pages/form-product/form-product.module';
+import { WarningDeletePageModule } from './pages/warning-delete/warning-delete.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +24,10 @@ import { InfoModalPageModule } from './pages/info-modal/info-modal.module';
     IonicModule.forRoot(),
     AppRoutingModule, 
     CartModalPageModule,
-    InfoModalPageModule
+    InfoModalPageModule,
+    AdministrationPageModule,
+    FormProductPageModule,
+    WarningDeletePageModule
   ],
   providers: [
     StatusBar,

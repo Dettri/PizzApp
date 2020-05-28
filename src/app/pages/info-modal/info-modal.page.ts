@@ -12,13 +12,12 @@ export class InfoModalPage implements OnInit {
 
   data: Product[] = [];
   ingredients: ingredients[] = [];
-  correctIngredients: string[] = [];
+  correctIngredients: ingredients[] = [];
   getActualProduct;
 
   constructor(private cartService: CartService, private ModalCtrl: ModalController, public navParams : NavParams) {}
 
   ngOnInit() {
-    console.log(this.navParams.get('ActualProduct'));
     this.getActualProduct = this.navParams.get('ActualProduct');
     this.data = this.cartService.getProduct();
     this.ingredients = this.cartService.getIngredients();
@@ -29,10 +28,26 @@ export class InfoModalPage implements OnInit {
     }
     */
 
+    /*
     for (let [index, p] of this.getActualProduct.entries()){
       if (p.id === this.ingredients.indexOf){
         this.correctIngredients.fill(this.ingredients.values.name)
       }
+    }
+    */
+
+      /*
+
+    for (let p of this.getActualProduct.ingredients){
+      this.correctIngredients.fill(this.getActualProduct.ingredients)
+      if (p == this.ingredients){
+        this.correctIngredients = p;
+      }
+    }
+    */
+
+    for (let p of this.getActualProduct.id()){
+      this.correctIngredients = this.getActualProduct;
     }
   }
 

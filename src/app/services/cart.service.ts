@@ -103,6 +103,21 @@ export class CartService {
     return this.ingredients;
   }
 
+  // ADMINISTRATION
+  removeProductAdmin(product){
+    this.data.splice(product.id, 1);
+  }
+
+  addProductAdmin(f){
+    //this.data.splice(9, 0, f.value.name)
+    //this.data.push(name,price)
+    this.data.splice(0,0,f.value);
+  }
+
+  changeProductAdmin(product){
+
+  }
+
   /*
   data: any;
 

@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
 import { InfoModalPage } from '../pages/info-modal/info-modal.page';
+import { AdministrationPage } from '../pages/administration/administration.page';
 
 @Component({
   selector: 'app-home',
@@ -45,6 +46,15 @@ export class HomePage implements OnInit {
       component: InfoModalPage,
       componentProps: { ActualProduct: product },
       cssClass: 'info-modal',
+    });
+    modal.present();
+  }
+
+  async openAdministration(product){
+    let modal = await this.modalCtrl.create({
+      component: AdministrationPage,
+      componentProps: { ActualProduct: product },
+      cssClass: 'admin-modal',
     });
     modal.present();
   }

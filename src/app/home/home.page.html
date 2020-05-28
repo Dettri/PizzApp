@@ -7,7 +7,15 @@
       PizzApp
     </ion-title>
     <ion-fab-buttons slot="primary">
-      <ion-fab-button fill="outline"  color="dark"(click)="openCart()" #cart>
+      <ion-fab-button class="fabButton1" fill="outline"  color="dark"(click)="openAdministration()" #cart>
+        <div class="cart-length"></div>
+        <ion-icon name="construct-outline" class="cart-icon2"></ion-icon>
+        <ion-icon slot="end" name="help-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-buttons>
+    
+    <ion-fab-buttons slot="primary">
+      <ion-fab-button class="fabButton2" fill="outline"  color="dark"(click)="openCart()" #cart>
         <div class="cart-length">{{ cartItemCount | async }}</div>
         <ion-icon name="cart" class="cart-icon"></ion-icon>
         <ion-icon slot="end" name="help-circle"></ion-icon>

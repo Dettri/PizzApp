@@ -19,6 +19,18 @@ const routes: Routes = [
   {
     path: 'info-modal',
     loadChildren: () => import('./pages/info-modal/info-modal.module').then( m => m.InfoModalPageModule)
+  },
+  {
+    path: 'administration',
+    loadChildren: () => import('./pages/administration/administration.module').then( m => m.AdministrationPageModule)
+  },
+  {
+    path: 'form-product',
+    loadChildren: () => import('./pages/form-product/form-product.module').then( m => m.FormProductPageModule)
+  },
+  {
+    path: 'warning-delete',
+    loadChildren: () => import('./pages/warning-delete/warning-delete.module').then( m => m.WarningDeletePageModule)
   }
 ];
 
