@@ -8,21 +8,21 @@
 
   <ion-content class="ion-padding">
 
-      <form #f="ngForm" (ngSubmit)="AdminForm(f)" novalidate>
+      <form #f="ngForm" (ngSubmit)="AdminForm(f, getActualProduct)" novalidate>
         <ion-list>
           <ion-item>
             <ion-label position="floating">Nom</ion-label>
-            <ion-input type="text" name="name" required [(ngModel)]="name" required>
+            <ion-input type="text" name="name" required required [(ngModel)]="getActualProduct.name" >
             </ion-input>
           </ion-item>
     
           <ion-item>
             <ion-label position="floating">Prix</ion-label>
-            <ion-input type="number" name="price" [(ngModel)]="price" required>
+            <ion-input type="number" name="price" required [(ngModel)]="getActualProduct.price" >
             </ion-input>
           </ion-item>
           <ion-button type="submit" expand="block" fill="outline" [disabled]="!f.valid">
-            Ajouter
+            Modifier
           </ion-button>
         </ion-list>
         

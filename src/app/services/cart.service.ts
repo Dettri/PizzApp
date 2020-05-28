@@ -114,8 +114,8 @@ export class CartService {
     this.data.splice(0,0,f.value);
   }
 
-  changeProductAdmin(product){
-
+  changeProductAdmin(f, getActualProduct){
+    this.data.splice(getActualProduct.id,1,f.value);
   }
 
   /*

@@ -15,6 +15,7 @@ import { InfoModalPageModule } from './pages/info-modal/info-modal.module';
 import { AdministrationPageModule } from './pages/administration/administration.module';
 import { FormProductPageModule } from './pages/form-product/form-product.module';
 import { WarningDeletePageModule } from './pages/warning-delete/warning-delete.module';
+import { FormChangeProductPageModule } from './pages/form-change-product/form-change-product.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,8 @@ import { WarningDeletePageModule } from './pages/warning-delete/warning-delete.m
     InfoModalPageModule,
     AdministrationPageModule,
     FormProductPageModule,
-    WarningDeletePageModule
+    WarningDeletePageModule,
+    FormChangeProductPageModule
   ],
   providers: [
     StatusBar,

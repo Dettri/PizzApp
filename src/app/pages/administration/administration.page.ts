@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { FormProductPage } from '../form-product/form-product.page';
 import { WarningDeletePage } from '../warning-delete/warning-delete.page';
 import { AlertController } from '@ionic/angular';
+import { FormChangeProductPage } from '../form-change-product/form-change-product.page';
 
 @Component({
   selector: 'app-administration',
@@ -66,8 +67,8 @@ export class AdministrationPage implements OnInit {
 
   async changeProductAdmin(product){
     let modal = await this.ModalCtrl.create({
-      component: FormProductPage,
-      componentProps: { product: product },
+      component: FormChangeProductPage,
+      componentProps: { ActualProduct: product },
       cssClass: 'formProduct-modal'
     });
     modal.present();

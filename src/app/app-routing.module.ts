@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'warning-delete',
     loadChildren: () => import('./pages/warning-delete/warning-delete.module').then( m => m.WarningDeletePageModule)
+  },
+  {
+    path: 'form-change-product',
+    loadChildren: () => import('./pages/form-change-product/form-change-product.module').then( m => m.FormChangeProductPageModule)
   }
 ];
 
