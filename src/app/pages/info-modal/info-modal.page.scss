@@ -1,0 +1,30 @@
+.priceProductInfo {
+    padding-left: 20px;
+    color: warning;
+}
+
+ion-card{
+    --background: #fff;
+    --color: #021b46;
+}
+
+.cart-length {
+  color: var(--ion-color-warning);
+  position: absolute;
+  top: 25px;
+  left: 28px;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 25px;
+  z-index: 10;
+}
+
+.iconBuy {
+  height: 25px;
+  width: 25px;
+}
+
+.placement {
+    padding-top: 15px;
+    padding-left: 20px;
+}

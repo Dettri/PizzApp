@@ -54,7 +54,7 @@ export class AdministrationPage implements OnInit {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Okay',
+          text: 'Delete',
           handler: () => {
             this.removeProductAdmin(product);
           }

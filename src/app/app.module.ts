@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -29,7 +30,11 @@ import { FormChangeProductPageModule } from './pages/form-change-product/form-ch
     AdministrationPageModule,
     FormProductPageModule,
     WarningDeletePageModule,
-    FormChangeProductPageModule
+    FormChangeProductPageModule,
+    BrowserModule, 
+    HttpClientModule,
+    IonicModule.forRoot(), 
+    AppRoutingModule
   ],
   providers: [
     StatusBar,

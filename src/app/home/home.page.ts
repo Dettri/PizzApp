@@ -17,6 +17,8 @@ export class HomePage implements OnInit {
   products=[];
   cartItemCount : BehaviorSubject<number>;
 
+  data2:any;
+
   // animation
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
 
@@ -26,6 +28,11 @@ export class HomePage implements OnInit {
     this.products = this.cartService.getProduct();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
+
+    this.cartService.getLocalData().subscribe(data2 => {
+      console.log(data2);
+      this.data2 = data2;
+    });
   }
 
   addToCart(product){

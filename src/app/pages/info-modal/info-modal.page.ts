@@ -36,8 +36,7 @@ export class InfoModalPage implements OnInit {
     }
     */
 
-      /*
-
+    /*
     for (let p of this.getActualProduct.ingredients){
       this.correctIngredients.fill(this.getActualProduct.ingredients)
       if (p == this.ingredients){
@@ -46,9 +45,20 @@ export class InfoModalPage implements OnInit {
     }
     */
 
+    /*
     for (let p of this.getActualProduct.id()){
       this.correctIngredients = this.getActualProduct;
     }
+    */  
+   
+    for (let i in this.getActualProduct.ingredients) {
+
+    }
+    // No internal logic is necessary.
+  }
+
+  addToCart(product){
+    this.cartService.addProduct(product);
   }
 
   close(){

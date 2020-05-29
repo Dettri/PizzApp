@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Url } from 'url';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export interface Product {
   id: number,
   name: string,
   price: number,
   amount: number;
-  ingredients: number[];
+  ingredients: string[];
 }
 
 export interface ingredients {
@@ -22,13 +23,13 @@ export interface ingredients {
 export class CartService {
 
   data: Product[] = [
-    { id: 0, name: 'Chèvre Miel', price: 13, amount: 1, ingredients: [1, 2]},
-    { id: 1, name: 'Paysane', price: 12, amount: 1, ingredients: [3, 5, 6]},
-    { id: 2, name: 'Royal', price: 12, amount: 1, ingredients: [1, 5, 6]},
-    { id: 3, name: 'Chorizo', price: 13, amount: 1, ingredients: [2, 4, 6, 7]},
-    { id: 4, name: 'Provencale', price: 13, amount: 1, ingredients: [1, 3, 5]},
-    { id: 5, name: 'Poulet', price: 14, amount: 1, ingredients: [3,6, 8]},
-    { id: 6, name: 'Fromage', price: 11, amount: 1, ingredients: [2, 5, 8]}
+    { id: 0, name: 'Chèvre Miel', price: 13, amount: 1, ingredients: ['creme', 'chèvre', 'miel']},
+    { id: 1, name: 'Paysane', price: 12, amount: 1, ingredients: ['creme', 'lardon', 'oignons']},
+    { id: 2, name: 'Royal', price: 12, amount: 1, ingredients: ['tomates', 'jambon', 'champignons']},
+    { id: 3, name: 'Chorizo', price: 13, amount: 1, ingredients: ['tomates', 'chorizo']},
+    { id: 4, name: 'Provencale', price: 13, amount: 1, ingredients: ['tomates', 'pesto', 'jambon cru']},
+    { id: 5, name: 'Poulet', price: 14, amount: 1, ingredients: ['creme', 'oignons', 'poulet']},
+    { id: 6, name: 'Fromage', price: 11, amount: 1, ingredients: ['creme', 'fromage']}
   ]; 
 
   ingredients: ingredients[] = [
@@ -45,14 +46,38 @@ export class CartService {
 
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
+  
+  data2: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+
+  }
+
+  ngOnInit() {
+    fetch('./assets/data/datajson.json').then(res => res.json())
+    .then(json => {
+      this.data2 = json;
+    });
+  }
+
+  // HTTP JSON GET
+  getLocalData(){
+    return this.http.get("./assets/data/datajson.json");
+  }
+
+  getRemoteData(){
+    return this.http.get("https://api.ynov.jcatania.io/pizza");
+  }
 
   // INFO  PRODUCT
   getProduct(){
     return this.data;
   }
   
+  getProduct2(){
+    return this.data2;
+  }
+
   getCart(){
     return this.cart;
   }
@@ -119,6 +144,7 @@ export class CartService {
   }
 
   /*
+  
   data: any;
 
   ngOnInit() {
